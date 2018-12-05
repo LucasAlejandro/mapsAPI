@@ -1,17 +1,13 @@
-﻿
-@{
-    ViewBag.Title = "GEOCODER";
-}
-@*                --GEOCODER-- 
+﻿@*                --GEOCODER--
 
-        --Buscar lat-log mediante nombre--
+    --Buscar lat-log mediante nombre--
 *@
 <style>
     /* Always set the map height explicitly to define the size of the div
       * element that contains the map. */
-        #map {
+    #map {
         height: 400px;
-        width: 500px;
+        width: 400px;
     }
     /* Optional: Makes the sample page fill the window. */
     html, body {
@@ -34,13 +30,14 @@
         padding: 10px;
     }
 </style>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALkm0kVQkpCFu2G6KbXft7F9nAG120eYI&libraries=places"></script>
 <div id="floating-panel">
     <input id="address" type="text" value="CIFP CarlosIII ,Cartagena">
     <input id="submit" type="button" value="Geocode">
 </div>
 <div id="map"></div>
 <script>
+    var autocomplete = new google.maps.places.Autocomplete(input);
 
     //iniciamos mapa con coordenadas por defecto//
       function initMap() {
@@ -49,14 +46,20 @@
           center: {lat: -34.397, lng: 150.644}
         });
 
-          //creamoas GEOCODER y le agregamos un ActionListener 
+          //creamoas GEOCODER y le agregamos un ActionListener
         var geocoder = new google.maps.Geocoder();
 
-        document.getElementById('submit').addEventListener('click', function() {
+
+        autocomplete.bindTo('bounds', map);
+        autocomplete.setFields(
+          ['address_components', 'geometry', 'icon', 'name']);
+
+
+        document.getElementById('submit').addEventListener('click', function () {
           geocodeAddress(geocoder, map);
         });
       }
-    //a partir de la direccion introducida buscamos coincidencias de google maps, 
+    //a partir de la direccion introducida buscamos coincidencias de google maps,
     //lo cual nos devolvera un array con coincidencias en el que cojeremos el primer elementop
 
       function geocodeAddress(geocoder, resultsMap) {

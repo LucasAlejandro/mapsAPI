@@ -26,5 +26,7 @@ namespace mapsAPI.Controllers
 
             return View();
         }
-    }
+       
+  }
+
 }
