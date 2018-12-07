@@ -266,8 +266,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Geo\Index.cshtml" />
+    <Content Include="Views\Geo\InfoWindow.cshtml" />
     <Content Include="Views\Geo\Autocomplete.cshtml" />
+    <Content Include="Views\Geo\GeoCoder.cshtml" />
+    <Content Include="Views\Geo\MarkerCluster.cshtml" />
+    <Content Include="Views\Geo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

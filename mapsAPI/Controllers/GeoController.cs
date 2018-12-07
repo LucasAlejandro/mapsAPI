@@ -9,11 +9,23 @@ namespace mapsAPI.Controllers
     public class GeoController : Controller
     {
         // GET: Geo
-        public ActionResult Index()
+        public ActionResult InfoWindow()
         {
             return View();
         }
         public ActionResult Autocomplete()
+        {
+            return View();
+        }
+        public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult GeoCoder()
+        {
+            return View();
+        }
+        public ActionResult MarkerCluster()
         {
             return View();
         }
